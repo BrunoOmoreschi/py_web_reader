@@ -5,7 +5,8 @@ engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 newVoiceRate = 130                       ## Reduce The Speech Rate
 engine.setProperty('rate',newVoiceRate)
-engine.setProperty('voice', voices[1].id)
+##Change the number below to your preferred language. You may use the Script 'available_voices.py' to list the available languages.
+engine.setProperty('voice', voices[0].id)
 def speak(audio):
   engine.say(audio)
   engine.runAndWait()
