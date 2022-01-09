@@ -6,7 +6,7 @@ voices = engine.getProperty('voices')
 newVoiceRate = 130                       ## Reduce The Speech Rate
 engine.setProperty('rate',newVoiceRate)
 ##Change the number below to your preferred language. You may use the Script 'available_voices.py' to list the available languages.
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', voices[1].id)
 def speak(audio):
   engine.say(audio)
   engine.runAndWait()
@@ -15,8 +15,8 @@ res = requests.get(text)
 soup = BeautifulSoup(res.text,'html.parser')
 
 articles = []
-for i in range(len(soup.select('.p'))):
-    article = soup.select('.p')[i].getText().strip()
+for i in range(len(soup.findAll('p'))):
+    article = soup.findAll('p')[i].getText().strip()
     articles.append(article)
 text = " ".join(articles)
 speak(text)
